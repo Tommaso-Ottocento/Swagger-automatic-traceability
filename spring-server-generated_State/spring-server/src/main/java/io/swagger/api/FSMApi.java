@@ -5,23 +5,13 @@
  */
 package io.swagger.api;
 
-import io.swagger.model.Percorso;
-import io.swagger.model.State;
-import io.swagger.model.User;
 import io.swagger.annotations.*;
+import io.swagger.model.State;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 import java.util.List;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-22T07:26:37.397Z")
 
@@ -33,7 +23,7 @@ public interface FSMApi {
         @ApiResponse(code = 200, message = "OK", response = State.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Wrong location or ID") })
     @RequestMapping(value = "/FSM/{loc}/{id}",
-        produces = { "text/plain" }, 
+        produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<List<State>> compute(@ApiParam(value = "give in input PI or PC or -",required=true) @PathVariable("loc") String loc,@ApiParam(value = "Identification code from 0 to 4",required=true) @PathVariable("id") String id);
 
